@@ -114,14 +114,8 @@ fn cmd_check(file: Option<&str>) {
         process::exit(1);
     });
 
-    match parse(&input) {
-        Ok(_) => {}
-        Err(errors) => {
-            for err in &errors {
-                eprintln!("{err}");
-            }
-            process::exit(1);
-        }
+    if let Err(errors) = parse(&input) {
+        report_parse_errors(&errors);
     }
 }
 
@@ -238,5 +232,27 @@ fn main() {
         Command::Import {
             format: ImportFormat::Json { file },
         } => cmd_import_json(file.as_deref()),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::is_valid_key;
+
+    #[test]
+    fn valid_keys() {
+        assert!(is_valid_key("APP_NAME"));
+        assert!(is_valid_key("_private"));
+        assert!(is_valid_key("a"));
+        assert!(is_valid_key("A1_b2"));
+    }
+
+    #[test]
+    fn invalid_keys() {
+        assert!(!is_valid_key(""));
+        assert!(!is_valid_key("1starts_with_digit"));
+        assert!(!is_valid_key("has-hyphen"));
+        assert!(!is_valid_key("has.dot"));
+        assert!(!is_valid_key("has space"));
     }
 }
