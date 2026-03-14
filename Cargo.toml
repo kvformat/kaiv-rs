@@ -2,6 +2,8 @@
 name = "kaiv"
 version = "0.1.0"
 edition = "2021"
+authors = ["Bojan Đuričković"]
+rust-version = "1.74"
 description = "A Kv Format Swiss-Army knife CLI tool"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/kvformat/kaiv-rs"
@@ -10,6 +12,7 @@ documentation = "https://docs.rs/kaiv"
 readme = "README.md"
 keywords = ["kv", "kvformat", "cli", "env", "config"]
 categories = ["command-line-utilities", "config"]
+exclude = [".github/", ".gitignore"]
 
 [dependencies]
 clap = { version = "4", features = ["derive"] }
