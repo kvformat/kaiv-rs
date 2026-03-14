@@ -6,6 +6,7 @@ description = "A Kv Format Swiss-Army knife CLI tool"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/kvformat/kaiv-rs"
 homepage = "https://kvformat.org/"
+documentation = "https://docs.rs/kaiv"
 readme = "README.md"
 keywords = ["kv", "kvformat", "cli", "env", "config"]
 categories = ["command-line-utilities", "config"]
