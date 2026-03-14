@@ -11,10 +11,10 @@ cat file.kv | kaiv get KEY
 
 Export `.kv` file
 ```
-cat file.kv | kaiv export --json
+cat file.kv | kaiv export json
 ```
 
 Import JSON file
 ```
-cat file.json | kaiv import --json
+cat file.json | kaiv import json
 ```
