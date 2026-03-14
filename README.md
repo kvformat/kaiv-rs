@@ -27,7 +27,7 @@ cat config.kv | kaiv get APP_NAME
 ### `kaiv check [FILE]`
 
 Validate a KV file. Prints nothing and exits 0 on success; prints all parse errors to stderr and
-exits 1 on failure.
+exits 1 on I/O error, and exits 2 on parse error.
 
 ```
 kaiv check config.kv
